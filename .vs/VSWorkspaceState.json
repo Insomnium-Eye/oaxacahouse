@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\obj",
+    "\\src"
   ],
+  "SelectedNode": "\\src\\locales",
   "PreviewInSolutionExplorer": false
 }
