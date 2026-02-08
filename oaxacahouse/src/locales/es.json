@@ -1,0 +1,27 @@
+{
+  "site": {
+    "title": "Casa Oaxaca — En Venta",
+    "description": "Casa grande tradicional en venta en las colinas de Oaxaca, México. Hermoso patio, dormitorios, cocina renovada y cerca de mercados locales.",
+    "price": "$225,000 USD (precio de ejemplo)",
+    "location": "Centro, Oaxaca de Juárez, Oaxaca, México",
+    "contact_cta": "Contactar al vendedor",
+    "gallery": "Galería",
+    "features_title": "Detalles de la propiedad",
+    "location_title": "Ubicación",
+    "contact_title": "Contacto",
+    "mailto_text": "O enviar correo directamente"
+  },
+  "features": [
+    "3 recámaras • 2 baños",
+    "Arquitectura tradicional de Oaxaca con patio central",
+    "Cocina y plomería renovadas",
+    "A poca distancia de mercados y restaurantes locales",
+    "Vecindario tranquilo e histórico con calles empedradas"
+  ],
+  "form": {
+    "name": "Tu nombre",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "send": "Enviar consulta"
+  }
+}

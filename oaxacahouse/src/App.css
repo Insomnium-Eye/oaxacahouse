@@ -1,0 +1,132 @@
+/* Ensure full-viewport app */
+html, body, #root, #app-root, #main-root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000; /* black background for the page */
+}
+
+/* Hide site header/footer if present */
+header, .header, nav, footer, .footer, .site-header, .site-footer {
+  display: none !important;
+}
+
+/* Make main fill viewport and provide neutral bg */
+#main-root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #111; /* adjust if you want different bg */
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/* Gallery container — allow full width and height */
+.gallery, .gallery.container, .gallery-root {
+  height: 100%;
+  width: 100%;
+  max-width: none;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep gallery label compact */
+.gallery > h3, .gallery > h2 {
+  margin: 0.25rem 0 0.5rem 0;
+  padding: 0 0.25rem;
+  color: inherit;
+}
+
+/* Grid takes remaining space and scrolls */
+.gallery .grid {
+  flex: 1;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  overflow: auto;
+  align-content: start;
+  padding: 0.25rem;
+}
+
+/* Thumbnails fill cells */
+.thumb {
+  display: block;
+  background: #222;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 6px;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* If you use a lightbox/modal ensure it's above everything */
+.lightbox, .modal {
+  z-index: 9999;
+}
+
+/* Small-screen tweak: fewer columns */
+@media (max-width: 600px) {
+  .gallery .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large single-image slideshow */
+.large-gallery {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000; /* fallback black */
+  opacity: 0.4;     /* gallery at 40% opacity (affects images and content) */
+}
+
+.slideshow {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+.slide {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* simple fade-in on each image change */
+.fade-in {
+  animation: fadeIn 600ms ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.01);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* accessibility: visually hidden caption */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}

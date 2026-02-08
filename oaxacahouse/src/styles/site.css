@@ -1,0 +1,204 @@
+:root{
+  --bg: #efe8e2; /* darker page background */
+  --text: #213547;
+  --accent: #b03a2e;
+  --muted: #6b7280;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: light;
+}
+
+/* Reset and force root to full width — prevents stray margin/padding/overflow */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  position:relative;
+  overflow-x:hidden;
+  text-align: center; /* center inline/text content globally */
+}
+
+/* subtle page background image (file: src/img/OaxacaPicture_21.jpg) */
+body::before{
+  content: "";
+  position:fixed;
+  inset:0;
+  background-image: url('../img/OaxacaPicture_21.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.06; /* slightly more transparent than before */
+  pointer-events: none;
+  z-index: 0;
+  filter: saturate(0.95) brightness(0.98);
+}
+
+/* very subtle dark overlay to increase contrast against the image */
+body::after{
+  content: "";
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,0.04);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure main content sits above the background image */
+.container{
+  display:flex;               /* <-- FIX: enable flex so flex-direction & align-items take effect */
+  flex-direction:column;
+  max-width:1100px;
+  width:100%;
+  margin:0 auto;
+  padding:1rem;
+  position:relative;
+  z-index:1;   
+  align-items:center; /* center block children */
+  text-align:center;
+}
+.site-header{
+  background:linear-gradient(90deg, #fff6f4 0%, #fff 100%);
+  border-bottom:1px solid #eee;
+  padding:1rem 0;
+}
+/* center header content instead of spacing to the edges */
+.header-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.site-header h1{margin:0;font-size:1.6rem}
+.site-header .location{margin:0.25rem 0 0;color:var(--muted)}
+.lang-switch{display:flex; gap:0.4rem;}
+.lang-switch button{padding:0.4rem 0.6rem;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer}
+
+/* Centering: constrain hero content and center everything inside it */
+.hero{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+  padding-top:0.5rem;
+  width:100%;
+}
+
+/* Make hero container much larger to fit most screens and deliver high-quality images */
+.hero-media {
+  position: relative;
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding: 0;
+}
+
+/* large responsive hero image: use viewport height to fill most screens while respecting max-width */
+.hero-image {
+  display:block;
+  width: 90vw;               /* use most of the viewport width */
+  max-width: 1600px;         /* constrain to large high-quality width */
+  height: min(80vh, 1000px); /* fill most of viewport height, cap for very large screens */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  opacity: 0;
+  transition: opacity 600ms ease, transform 600ms ease;
+  transform: translateY(6px);
+}
+
+/* fade-in + slight pop */
+.hero-image.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* nav arrows placed over the image itself, high opacity so arrow is clearly visible */
+.hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.95); /* high opacity background so arrow remains readable */
+  color: var(--text);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.6rem;
+  border: none;
+  z-index: 4;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* soften hover so arrow stands out */
+.hero-nav:hover {
+  transform: translateY(-50%) scale(1.02);
+}
+
+/* left / right positions sit slightly inside the image bounds */
+.hero-prev { left: calc(5vw + 8px); }
+.hero-next { right: calc(5vw + 8px); }
+
+/* hide arrows on very small screens to avoid overlap */
+@media (max-width:420px){
+  .hero-nav{ display:none; }
+  .hero-image { width: 96vw; height: 50vh; }
+}
+@media (max-width:920px){
+  .hero-image{height:320px}
+  .hero-placeholder{height:260px}
+  .hero-card{max-width:92%}
+  .header-row{flex-direction:column}
+}
+@media (max-width:640px){
+  .hero-image{height:260px}
+  .hero-card{flex-direction:column;transform:translateY(-20px);gap:0.5rem;width:calc(100% - 2rem)}
+  .thumb img{height:120px}
+  .thumb{max-width:100%}
+}
+
+/* ensure the hero-card sits visually on top of the image */
+.hero-card {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  bottom: 6%;
+  max-width: 900px;
+  width: calc(90% - 2rem);
+  z-index: 5;
+  background: rgba(255,255,255,0.96);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+/* reduce default hero placeholder size to match new layout */
+.hero-placeholder {
+  width: 90vw;
+  max-width: 1600px;
+  height: min(60vh, 700px);
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* keep gallery, thumbs and other rules but ensure centering is preserved */
+.gallery { padding-top: 1.5rem; text-align:center; width:100%; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.75rem; width:100%; justify-items:center; }
+/* Minor tweak: ensure hero-media container does not push page horizontally */
+.hero-media, .hero-image, .hero-placeholder { box-sizing: border-box; }

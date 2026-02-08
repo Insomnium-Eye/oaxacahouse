@@ -1,0 +1,27 @@
+{
+  "site": {
+    "title": "Casa Oaxaca — For Sale",
+    "description": "Large traditional house for sale in the hills of Oaxaca, Mexico. Beautiful patio, bedrooms, renovated kitchen and walking distance to local mercados.",
+    "price": "$225,000 USD (example price)",
+    "location": "Centro, Oaxaca de Juárez, Oaxaca, Mexico",
+    "contact_cta": "Contact seller",
+    "gallery": "Gallery",
+    "features_title": "Property details",
+    "location_title": "Location",
+    "contact_title": "Contact",
+    "mailto_text": "Or email directly"
+  },
+  "features": [
+    "3 bedrooms • 2 bathrooms",
+    "Traditional Oaxaca architecture with central patio",
+    "Renovated kitchen and plumbing",
+    "Walking distance to mercados and local restaurants",
+    "Quiet, historic neighborhood with cobblestone streets"
+  ],
+  "form": {
+    "name": "Your name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send inquiry"
+  }
+}
