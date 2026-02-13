@@ -16,30 +16,35 @@ export default function App() {
     )
 
     const images = useMemo(() => {
-        return Object.keys(modules)
+        // 1. Create the list of images
+        const list = Object.keys(modules)
             .map((k) => {
                 const mod = modules[k]
-                // Handle both ESM default export and direct export
                 const src = (mod && (mod.default || mod)) || ''
-                // Extract just the filename (e.g. "OaxacaPicture_21.jpg")
                 const name = k.split('/').pop()
                 return { src, name }
             })
             .filter((img) => img.src)
-            // --- THIS IS THE NEW SORTING LOGIC ---
-            .sort((a, b) => {
-                // Extract the first number found in the filename
-                const getNumber = (str) => {
-                    const match = str.match(/(\d+)/)
-                    return match ? parseInt(match[0], 10) : 0
-                }
 
-                const numA = getNumber(a.name)
-                const numB = getNumber(b.name)
+        // 2. SORT the list (Ascending numeric order)
+        list.sort((a, b) => {
+            // Find the number inside the filename (e.g. "OaxacaPicture_21.jpg" -> 21)
+            const getNumber = (str) => {
+                const match = str.match(/(\d+)/)
+                return match ? parseInt(match[0], 10) : 0
+            }
 
-                // Return B - A for Descending (21, 20, 19...)
-                return numB - numA
-            })
+            const numA = getNumber(a.name)
+            const numB = getNumber(b.name)
+
+            // Return numA - numB for Ascending Order (1, 2, 3...)
+            return numA - numB
+        })
+        
+        // Debug: Check your console (F12) to see the final order
+        console.log('Gallery Order:', list.map(i => i.name))
+
+        return list
     }, [modules])
 
     return (
