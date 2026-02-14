@@ -713,3 +713,30 @@ header, .header, nav, footer, .footer, .site-header, .site-footer {
     font-size: 0.75rem;
   }
 }
+
+/* Home / Close persistent button (top-left) */
+.home-button {
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 1001;
+}
+.home-button button {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: 1px solid rgba(200,167,108,0.25);
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+.home-button button:hover {
+  background: rgba(200,167,108,0.12);
+  color: #d4af8a;
+}
+
+@media (max-width: 600px) {
+  .home-button { top: 0.9rem; left: 0.9rem; }
+  .home-button button { padding: 0.35rem 0.5rem; font-size: 0.95rem; }
+}

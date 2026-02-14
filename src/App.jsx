@@ -63,6 +63,20 @@ export default function App() {
             <main id="main-root" style={{ height: '100%' }}>
                 <Gallery images={images} galleryLabel={t('site.gallery')} />
                 
+                {/* Home / Close button (top-left) */}
+                <div className="home-button">
+                    <button
+                        onClick={() => {
+                            if (isModalOpen) setIsModalOpen(false)
+                            else window.scrollTo({ top: 0, behavior: 'smooth' })
+                        }}
+                        aria-label="Close modal or go home"
+                        title="Close / Home"
+                    >
+                        ⤺
+                    </button>
+                </div>
+
                 {/* Language Switcher */}
                 <div className="language-switcher">
                     <button
