@@ -1,13 +1,15 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import './i18n'
 import './styles/site.css'
 import './App.css'
 import { Helmet } from 'react-helmet'
 import Gallery from './Gallery'
+import GalleryModal from './GalleryModal'
 
 export default function App() {
     const { t, i18n } = useTranslation()
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     const modules = useMemo(
         () =>
@@ -139,12 +141,26 @@ export default function App() {
 
                                 <div className="note">
                                     <p><em>Available furnished or unfurnished, based on buyer preference</em></p>
+                                    <button 
+                                        className="gallery-modal-button"
+                                        onClick={() => setIsModalOpen(true)}
+                                        aria-label="View full gallery"
+                                    >
+                                        View Full Gallery
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </main>
+            
+            <GalleryModal 
+                images={images}
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                galleryLabel={t('site.gallery')}
+            />
         </div>
     )
 }
