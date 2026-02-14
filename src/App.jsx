@@ -62,91 +62,110 @@ export default function App() {
 
             <main id="main-root" style={{ height: '100%' }}>
                 <Gallery images={images} galleryLabel={t('site.gallery')} />
+                
+                {/* Language Switcher */}
+                <div className="language-switcher">
+                    <button
+                        className={`lang-btn ${i18n.language === 'en' ? 'active' : ''}`}
+                        onClick={() => i18n.changeLanguage('en')}
+                        title="English"
+                    >
+                        EN
+                    </button>
+                    <span className="lang-separator">/</span>
+                    <button
+                        className={`lang-btn ${i18n.language === 'es' ? 'active' : ''}`}
+                        onClick={() => i18n.changeLanguage('es')}
+                        title="Español"
+                    >
+                        ES
+                    </button>
+                </div>
                 <section className="property-description" aria-label="Property Description">
                     <div className="desc-inner">
-                        <h2>Exclusive Property for Sale</h2>
+                        <h2>{t('property.title')}</h2>
                         
                         <div className="location">
-                            <p><strong>San Felipe del Agua, Oaxaca, Mexico</strong></p>
-                            <p>Situated in the most exclusive and desirable area of Oaxaca, this traditional Mexican estate offers timeless elegance and unparalleled privacy.</p>
+                            <p><strong>{t('property.location_heading')}</strong></p>
+                            <p>{t('property.location_description')}</p>
                         </div>
 
                         <div className="columns">
                             <div className="column-section">
-                                <h3>The Estate</h3>
+                                <h3>{t('property.estate_heading')}</h3>
                                 <div className="feature-list">
                                     <div className="feature-item">
-                                        <strong>Lot Size</strong>
-                                        <p>1,065.04 m² of beautifully landscaped grounds</p>
+                                        <strong>{t('property.lot_size')}</strong>
+                                        <p>{t('property.lot_size_desc')}</p>
                                     </div>
                                     <div className="feature-item">
-                                        <strong>Main Residence</strong>
-                                        <p>301.04 m² of traditional Mexican architecture with distinctive red adobe finishes</p>
+                                        <strong>{t('property.main_residence')}</strong>
+                                        <p>{t('property.main_residence_desc')}</p>
                                     </div>
                                 </div>
 
-                                <h3>Main House</h3>
+                                <h3>{t('property.main_house_heading')}</h3>
                                 <div className="feature-list">
                                     <div className="feature-item">
-                                        <strong>3 Spacious Bedrooms</strong>
-                                        <p>Each with its own en-suite bathroom</p>
+                                        <strong>{t('property.bedrooms')}</strong>
+                                        <p>{t('property.bedrooms_desc')}</p>
                                     </div>
                                     <div className="feature-item">
-                                        <strong>Traditional Mexican Kitchen</strong>
-                                        <p>Custom wooden cabinetry, built-in pantry storage, and authentic design</p>
+                                        <strong>{t('property.kitchen')}</strong>
+                                        <p>{t('property.kitchen_desc')}</p>
                                     </div>
                                     <div className="feature-item">
-                                        <strong>Living & Dining Areas</strong>
-                                        <p>Open-concept spaces with built-in wooden furniture and bookcases</p>
+                                        <strong>{t('property.living_dining')}</strong>
+                                        <p>{t('property.living_dining_desc')}</p>
                                     </div>
                                     <div className="feature-item">
-                                        <strong>Signature Experiences</strong>
-                                        <p>Stargazing bathtub with retractable roof • Indoor/outdoor fish fountain • Large covered verandas with guest bath</p>
+                                        <strong>{t('property.signature')}</strong>
+                                        <p>{t('property.signature_desc')}</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="column-section">
-                                <h3>Guest Bungalows</h3>
+                                <h3>{t('property.guest_bungalows_heading')}</h3>
                                 <div className="feature-list">
                                     <div className="feature-item">
-                                        <strong>2 Private Bungalows</strong>
-                                        <p>Each with en-suite bathroom, private veranda, and garden area</p>
+                                        <strong>{t('property.bungalows')}</strong>
+                                        <p>{t('property.bungalows_desc')}</p>
                                     </div>
                                 </div>
 
-                                <h3>Amenities & Features</h3>
+                                <h3>{t('property.amenities_heading')}</h3>
                                 <div className="feature-list">
                                     <div className="feature-item">
-                                        <strong>Lush Gardens</strong>
-                                        <p>Mango, Guava, Avocado, Lemon, and Eucalyptus trees • Tree-lined walkways and multiple verandas</p>
+                                        <strong>{t('property.gardens')}</strong>
+                                        <p>{t('property.gardens_desc')}</p>
                                     </div>
                                     <div className="feature-item">
-                                        <strong>Parking</strong>
-                                        <p>Space for up to 7 vehicles</p>
+                                        <strong>{t('property.parking')}</strong>
+                                        <p>{t('property.parking_desc')}</p>
                                     </div>
                                     <div className="feature-item">
-                                        <strong>Water System</strong>
-                                        <p>Dual cistern: 10,000L main supply + 6,000L rainwater harvesting</p>
+                                        <strong>{t('property.water')}</strong>
+                                        <p>{t('property.water_desc')}</p>
                                     </div>
                                     <div className="feature-item">
-                                        <strong>Security</strong>
-                                        <p>Comprehensive camera system • Electrified perimeter fence</p>
+                                        <strong>{t('property.security')}</strong>
+                                        <p>{t('property.security_desc')}</p>
                                     </div>
                                     <div className="feature-item">
-                                        <strong>Utilities</strong>
-                                        <p>Dedicated laundry room</p>
+                                        <strong>{t('property.utilities')}</strong>
+                                        <p>{t('property.utilities_desc')}</p>
                                     </div>
                                 </div>
 
                                 <div className="note">
-                                    <p><em>Available furnished or unfurnished, based on buyer preference</em></p>
+                                    <p><em>{t('property.note')}</em></p>
                                     <button 
                                         className="gallery-modal-button"
                                         onClick={() => setIsModalOpen(true)}
                                         aria-label="View full gallery"
                                     >
-                                        View Full Gallery
+                                        {t('property.view_gallery')}
                                     </button>
                                 </div>
                             </div>

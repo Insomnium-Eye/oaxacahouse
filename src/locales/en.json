@@ -1,9 +1,9 @@
 {
   "site": {
-    "title": "Casa Oaxaca � For Sale",
+    "title": "Casa Oaxaca � For Sale",
     "description": "Large traditional house for sale in the hills of Oaxaca, Mexico. Beautiful patio, bedrooms, renovated kitchen and walking distance to local mercados.",
     "price": "$225,000 USD (example price)",
-    "location": "Centro, Oaxaca de Ju�rez, Oaxaca, Mexico",
+    "location": "Centro, Oaxaca de Ju�rez, Oaxaca, Mexico",
     "contact_cta": "Contact seller",
     "gallery": "Gallery",
     "features_title": "Property details",
@@ -12,7 +12,7 @@
     "mailto_text": "Or email directly"
   },
   "features": [
-    "3 bedrooms � 2 bathrooms",
+    "3 bedrooms � 2 bathrooms",
     "Traditional Oaxaca architecture with central patio",
     "Renovated kitchen and plumbing",
     "Walking distance to mercados and local restaurants",
@@ -23,5 +23,40 @@
     "email": "Email",
     "message": "Message",
     "send": "Send inquiry"
+  },
+  "property": {
+    "title": "Exclusive Property for Sale",
+    "location_heading": "San Felipe del Agua, Oaxaca, Mexico",
+    "location_description": "Situated in the most exclusive and desirable area of Oaxaca, this traditional Mexican estate offers timeless elegance and unparalleled privacy.",
+    "estate_heading": "The Estate",
+    "lot_size": "Lot Size",
+    "lot_size_desc": "1,065.04 m² of beautifully landscaped grounds",
+    "main_residence": "Main Residence",
+    "main_residence_desc": "301.04 m² of traditional Mexican architecture with distinctive red adobe finishes",
+    "main_house_heading": "Main House",
+    "bedrooms": "3 Spacious Bedrooms",
+    "bedrooms_desc": "Each with its own en-suite bathroom",
+    "kitchen": "Traditional Mexican Kitchen",
+    "kitchen_desc": "Custom wooden cabinetry, built-in pantry storage, and authentic design",
+    "living_dining": "Living & Dining Areas",
+    "living_dining_desc": "Open-concept spaces with built-in wooden furniture and bookcases",
+    "signature": "Signature Experiences",
+    "signature_desc": "Stargazing bathtub with retractable roof • Indoor/outdoor fish fountain • Large covered verandas with guest bath",
+    "guest_bungalows_heading": "Guest Bungalows",
+    "bungalows": "2 Private Bungalows",
+    "bungalows_desc": "Each with en-suite bathroom, private veranda, and garden area",
+    "amenities_heading": "Amenities & Features",
+    "gardens": "Lush Gardens",
+    "gardens_desc": "Mango, Guava, Avocado, Lemon, and Eucalyptus trees • Tree-lined walkways and multiple verandas",
+    "parking": "Parking",
+    "parking_desc": "Space for up to 7 vehicles",
+    "water": "Water System",
+    "water_desc": "Dual cistern: 10,000L main supply + 6,000L rainwater harvesting",
+    "security": "Security",
+    "security_desc": "Comprehensive camera system • Electrified perimeter fence",
+    "utilities": "Utilities",
+    "utilities_desc": "Dedicated laundry room",
+    "note": "Available furnished or unfurnished, based on buyer preference",
+    "view_gallery": "View Full Gallery"
   }
 }
