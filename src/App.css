@@ -19,6 +19,7 @@ header, .header, nav, footer, .footer, .site-header, .site-footer {
   background: #111; /* adjust if you want different bg */
   color: #fff;
   box-sizing: border-box;
+  position: relative; /* allow absolutely positioned overlays inside main */
 }
 
 /* Gallery container — allow full width and height */
@@ -129,4 +130,133 @@ header, .header, nav, footer, .footer, .site-header, .site-footer {
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
+}
+
+/* Property description overlay at bottom */
+.property-description {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.85));
+  color: #fff;
+  max-height: 50vh;
+  overflow: auto;
+  box-sizing: border-box;
+  z-index: 1500;
+  backdrop-filter: blur(6px);
+  border-top: 2px solid rgba(200, 167, 108, 0.4);
+}
+
+.property-description .desc-inner {
+  padding: 2rem 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.property-description h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8rem;
+  color: #c8a76c;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.property-description h3 {
+  margin: 1.5rem 0 0.75rem 0;
+  font-size: 1.1rem;
+  color: #e8d9b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.property-description h3:first-child {
+  margin-top: 0;
+}
+
+.property-description p {
+  color: #e6e6e6;
+  line-height: 1.65;
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.property-description strong {
+  color: #d4af8a;
+  font-weight: 600;
+}
+
+.property-description em {
+  color: #b8b8b8;
+  font-style: italic;
+}
+
+.property-description .location {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(200, 167, 108, 0.2);
+}
+
+.property-description .columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.property-description .column-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.property-description .feature-list {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.property-description .feature-item {
+  padding: 0.8rem 1rem;
+  background: rgba(200, 167, 108, 0.06);
+  border-left: 3px solid rgba(200, 167, 108, 0.3);
+  border-radius: 2px;
+}
+
+.property-description .feature-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #d4af8a;
+}
+
+.property-description .feature-item p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.property-description .note {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(200, 167, 108, 0.2);
+  text-align: center;
+  font-size: 0.9rem;
+  color: #b8b8b8;
+}
+
+@media (max-width: 900px) {
+  .property-description { max-height: 60vh; }
+  .property-description .desc-inner { padding: 1.5rem; }
+  .property-description h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+  .property-description .columns { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+@media (max-width: 600px) {
+  .property-description { max-height: 70vh; }
+  .property-description .desc-inner { padding: 1rem; }
+  .property-description h2 { font-size: 1.2rem; }
+  .property-description h3 { font-size: 1rem; }
+  .property-description .columns { gap: 1rem; }
 }
