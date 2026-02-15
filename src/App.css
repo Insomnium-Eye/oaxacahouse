@@ -87,7 +87,7 @@ header, .header, nav, footer, .footer, .site-header, .site-footer {
   justify-content: center;
   overflow: hidden;
   background: #000; /* fallback black */
-  opacity: 0.4;     /* gallery at 40% opacity (affects images and content) */
+  opacity: 1;
 }
 
 .slideshow {
@@ -132,22 +132,19 @@ header, .header, nav, footer, .footer, .site-header, .site-footer {
   white-space: nowrap;
 }
 
-/* Property description overlay at bottom */
+/* Property description (placed under gallery) */
 .property-description {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.85));
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.55));
   color: #fff;
-  max-height: 50vh;
+  width: 100%;
   overflow: auto;
   box-sizing: border-box;
-  z-index: 1500;
-  backdrop-filter: blur(6px);
-  border-top: 2px solid rgba(200, 167, 108, 0.4);
+  z-index: 1;
+  backdrop-filter: blur(4px);
+  border-top: 1px solid rgba(200, 167, 108, 0.15);
 }
 
 .property-description .desc-inner {
