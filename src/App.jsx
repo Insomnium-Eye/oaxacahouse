@@ -61,7 +61,7 @@ export default function App() {
             </Helmet>
 
             <main id="main-root" style={{ height: '100%' }}>
-                <Gallery images={images} galleryLabel={t('site.gallery')} />
+                <Gallery images={images} galleryLabel={t('site.gallery')} onViewGallery={() => setIsModalOpen(true)} />
                 
                 {/* Home / Close button (top-left) - only show when modal is open */}
                 {isModalOpen && (
@@ -176,13 +176,6 @@ export default function App() {
 
                                 <div className="note">
                                     <p><em>{t('property.note')}</em></p>
-                                    <button 
-                                        className="gallery-modal-button"
-                                        onClick={() => setIsModalOpen(true)}
-                                        aria-label="View full gallery"
-                                    >
-                                        {t('property.view_gallery')}
-                                    </button>
                                 </div>
                             </div>
                         </div>

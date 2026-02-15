@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-export default function Gallery({ images = [], galleryLabel = 'Gallery' }) {
+export default function Gallery({ images = [], galleryLabel = 'Gallery', onViewGallery }) {
   const [index, setIndex] = useState(0)
   const intervalRef = useRef(null)
 
@@ -42,10 +42,20 @@ export default function Gallery({ images = [], galleryLabel = 'Gallery' }) {
           src={current.src}
           alt={current.name || galleryLabel}
           loading="eager"
-          style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center', display: 'block', background: '#000' }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block', background: '#000' }}
         />
         <figcaption className="visually-hidden">{current.name}</figcaption>
       </figure>
+
+      {/* Overlay View Gallery button (bottom-right) */}
+      <button
+        className="gallery-overlay-button"
+        onClick={() => onViewGallery && onViewGallery()}
+        aria-label={`View full ${galleryLabel}`}
+        title={galleryLabel}
+      >
+        {galleryLabel}
+      </button>
     </div>
   )
 }
