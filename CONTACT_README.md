@@ -1,7 +1,7 @@
 Contact Feature Setup
 
 Overview
-The contact modal uses **EmailJS** to send emails directly from the browser. This works seamlessly on GitHub Pages (static hosting) without requiring a backend server.
+The contact modal uses **EmailJS** to send emails directly from the browser. A simple "I am not a robot" checkbox is included in the form to prevent automated submissions; when checked the user can submit their name, email, phone and message. This approach works seamlessly on GitHub Pages (static hosting) without requiring a backend server.
 
 EmailJS handles the SMTP connection and sends emails to two Gmail accounts you configure.
 

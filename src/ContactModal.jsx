@@ -6,7 +6,7 @@ import './App.css'
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '')
 
 export default function ContactModal({ isOpen, onClose }) {
-  const [captcha, setCaptcha] = useState(false)
+  const [captcha, setCaptcha] = useState(false)  // checkbox state
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -79,22 +79,19 @@ export default function ContactModal({ isOpen, onClose }) {
         </div>
 
         <div style={{ padding: '0 1rem 1rem 1rem' }}>
-          <p>Please confirm you're human, then send a short message and we'll reply.</p>
+          <p>Please confirm you're human by checking the box below, then send a short message and we'll reply.</p>
 
-          {!captcha && (
-            <div style={{ margin: '0.75rem 0' }}>
-              <button
-                className="gallery-overlay-button"
-                onClick={() => setCaptcha(true)}
-              >
-                Click to confirm you're human
-              </button>
-              {errors.captcha && <div className="field-error">{errors.captcha}</div>}
-            </div>
-          )}
-
-          {captcha && (
-            <form onSubmit={handleSubmit} className="contact-form">
+          <form onSubmit={handleSubmit} className="contact-form">
+            <label style={{display:'flex', alignItems:'center', gap:'0.4rem'}}>
+              <input
+                type="checkbox"
+                checked={captcha}
+                onChange={e => setCaptcha(e.target.checked)}
+                style={{width:'1rem',height:'1rem'}}
+              />
+              <span>I am not a robot *</span>
+            </label>
+            {errors.captcha && <div className="field-error">{errors.captcha}</div>}
               <label>
                 Name *
                 <input value={name} onChange={e => setName(e.target.value)} required />
