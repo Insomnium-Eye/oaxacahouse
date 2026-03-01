@@ -780,3 +780,45 @@ header, .header, nav, footer, .footer, .site-header, .site-footer {
   .home-button { top: 0.9rem; left: 0.9rem; }
   .home-button button { padding: 0.35rem 0.5rem; font-size: 0.95rem; }
 }
+
+/* Contact modal styles */
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10050;
+}
+.contact-modal {
+  width: 96%;
+  max-width: 560px;
+  background: #111;
+  border: 1px solid rgba(200,167,108,0.12);
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  color: #fff;
+  overflow: hidden;
+}
+.contact-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(90deg, rgba(200,167,108,0.08), rgba(200,167,108,0.02));
+  border-bottom: 1px solid rgba(200,167,108,0.06);
+}
+.contact-header h3 { margin: 0; color: #d4af8a; }
+.close-btn { background: none; border: none; color: #fff; font-size: 1.05rem; cursor: pointer }
+.contact-form { display: flex; flex-direction: column; gap: 0.6rem; padding: 0.8rem 0 1rem 0 }
+.contact-form label { display: flex; flex-direction: column; font-size: 0.9rem; color: #eaeaea }
+.contact-form input, .contact-form textarea { margin-top: 0.35rem; padding: 0.55rem 0.6rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); color: #fff }
+.contact-form textarea { min-height: 100px; resize: vertical }
+.field-error { color: #ffb3b3; font-size: 0.85rem; margin-top: 0.25rem }
+.success-msg { color: #bff0c7; font-size: 0.95rem }
+
+@media (max-width: 480px) {
+  .contact-modal { max-width: 94%; }
+  .contact-form textarea { min-height: 80px }
+}

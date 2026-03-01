@@ -6,10 +6,12 @@ import './App.css'
 import { Helmet } from 'react-helmet'
 import Gallery from './Gallery'
 import GalleryModal from './GalleryModal'
+import ContactModal from './ContactModal'
 
 export default function App() {
     const { t, i18n } = useTranslation()
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isContactOpen, setIsContactOpen] = useState(false)
 
     const modules = useMemo(
         () =>
@@ -62,6 +64,16 @@ export default function App() {
 
             <main id="main-root" style={{ height: '100%' }}>
                 <Gallery images={images} galleryLabel={t('site.gallery')} onViewGallery={() => setIsModalOpen(true)} />
+                
+                {/* Contact Us floating button */}
+                <button
+                    className="gallery-overlay-button"
+                    style={{ right: '1.25rem', bottom: '5.5rem', position: 'fixed' }}
+                    onClick={() => setIsContactOpen(true)}
+                    aria-label="Contact us"
+                >
+                    Contact Us
+                </button>
                 
                 {/* Home / Close button (top-left) - only show when modal is open */}
                 {isModalOpen && (
@@ -188,6 +200,11 @@ export default function App() {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 galleryLabel={t('site.gallery')}
+            />
+
+            <ContactModal
+                isOpen={isContactOpen}
+                onClose={() => setIsContactOpen(false)}
             />
         </div>
     )
