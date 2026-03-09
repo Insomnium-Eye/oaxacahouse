@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://oaxaca-house-for-sale.com/sitemap.xml
